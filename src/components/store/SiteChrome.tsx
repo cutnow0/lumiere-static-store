@@ -10,8 +10,19 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/92 backdrop-blur-xl">
       <div className="mx-auto grid h-20 max-w-[1440px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:h-24 sm:px-10 lg:px-16">
         <span className="hidden text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:block">Curated in threes</span>
-        <Link to="/" aria-label="Lumière home" className="justify-self-start sm:justify-self-center">
-          <img src={LOGO_URL} alt="Lumière" className="h-[50px] w-auto object-contain" />
+        <Link to="/" aria-label="Lumière home" className="relative flex h-[50px] items-center justify-self-start sm:justify-self-center">
+          <span className="font-display text-2xl font-semibold">Lumière</span>
+          <img
+            src={LOGO_URL}
+            alt="Lumière"
+            onLoad={(event) => {
+              event.currentTarget.previousElementSibling?.setAttribute("hidden", "");
+            }}
+            onError={(event) => {
+              event.currentTarget.style.display = "none";
+            }}
+            className="absolute inset-0 h-[50px] w-auto max-w-none object-contain"
+          />
         </Link>
         <Link to="/" className="flex items-center gap-2 justify-self-end text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-primary">
           Shop <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
