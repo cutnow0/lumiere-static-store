@@ -18,7 +18,7 @@ export function ProductCard({ product }: { product: Product }) {
             onError={(event) => {
               event.currentTarget.style.display = "none";
             }}
-            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
+            className="relative h-full w-full bg-muted object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
           />
           <span className="absolute left-3 top-3 rounded-full bg-primary px-3 py-2 text-[10px] font-bold uppercase text-primary-foreground shadow-sm sm:left-5 sm:top-5 sm:px-4 sm:text-xs">Pack of 3</span>
         </div>

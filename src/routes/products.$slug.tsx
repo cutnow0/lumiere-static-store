@@ -49,7 +49,7 @@ function ProductDetail() {
         <div className="mt-5 grid gap-7 sm:mt-9 sm:gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-24">
           <div className="relative h-[210px] overflow-hidden rounded-2xl bg-muted shadow-soft sm:h-auto sm:aspect-[4/5] lg:sticky lg:top-28">
             <div className="absolute inset-0 flex items-center justify-center px-8 text-center font-display text-2xl font-semibold text-muted-foreground">{product.name}</div>
-            <img src={product.image} alt={product.name} onError={(event) => { event.currentTarget.style.display = "none"; }} className="h-full w-full object-cover" />
+            <img src={product.image} alt={product.name} onError={(event) => { event.currentTarget.style.display = "none"; }} className="relative h-full w-full bg-muted object-cover" />
             <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 rounded-xl bg-background/95 p-3 shadow-soft backdrop-blur-sm sm:hidden">
               <span className="rounded-full bg-primary px-3 py-2 text-[10px] font-bold uppercase text-primary-foreground">Pack of 3</span>
               <div className="text-right"><p className="text-[9px] font-semibold uppercase text-muted-foreground">Bundle price</p><p className="font-display text-2xl font-bold leading-none">{product.bundlePrice}</p></div>
