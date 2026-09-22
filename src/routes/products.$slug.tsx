@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Check, Feather, Heart, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { StoreLayout } from "@/components/store/SiteChrome";
-import { checkoutUrl, products } from "@/lib/store";
+import { checkoutUrl, perUnitPrice, products } from "@/lib/store";
 
 export const Route = createFileRoute("/products/$slug")({
   loader: ({ params }) => {
@@ -46,30 +46,39 @@ function ProductDetail() {
           <ArrowLeft aria-hidden="true" className="h-4 w-4" /> Back to collection
         </Link>
 
-        <div className="mt-9 grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-24">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted shadow-soft lg:sticky lg:top-32">
-            <img src={product.image} alt={product.name} onError={(event) => { event.currentTarget.style.display = "none"; }} className="h-full w-full object-cover" />
-            <span className="absolute left-5 top-5 rounded-full bg-background/90 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground backdrop-blur-sm">Save 30%</span>
+        <div className="mt-5 grid gap-7 sm:mt-9 sm:gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-24">
+          <div className="relative h-[210px] overflow-hidden rounded-2xl bg-muted shadow-soft sm:h-auto sm:aspect-[4/5] lg:sticky lg:top-28">
+            <div className="absolute inset-0 flex items-center justify-center px-8 text-center font-display text-2xl font-semibold text-muted-foreground">{product.name}</div>
+            <img src={product.image} alt={product.name} onError={(event) => { event.currentTarget.style.display = "none"; }} className="relative h-full w-full bg-muted object-cover" />
+            <div className="absolute inset-x-3 bottom-3 flex items-center justify-between gap-3 rounded-xl bg-background/95 p-3 shadow-soft backdrop-blur-sm sm:hidden">
+              <span className="rounded-full bg-primary px-3 py-2 text-[10px] font-bold uppercase text-primary-foreground">Pack of 3</span>
+              <div className="text-right"><p className="text-[9px] font-semibold uppercase text-muted-foreground">Bundle price</p><p className="font-display text-2xl font-bold leading-none">{product.bundlePrice}</p></div>
+            </div>
           </div>
 
-          <div className="self-center lg:py-14">
-            <span className="inline-flex rounded-full bg-accent px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent-foreground">Pack of 3</span>
-            <h1 className="mt-7 font-display text-5xl font-semibold leading-[1.05] sm:text-6xl">{product.name}</h1>
-            <p className="mt-7 max-w-xl text-base font-light leading-8 text-muted-foreground sm:text-lg">{product.description}</p>
+          <div className="self-center lg:py-10">
+            <span className="inline-flex rounded-full bg-primary px-5 py-2.5 text-sm font-bold uppercase text-primary-foreground shadow-sm">Pack of 3</span>
+            <h1 className="mt-5 font-display text-4xl font-semibold leading-[1.05] sm:mt-7 sm:text-6xl">{product.name}</h1>
+            <p className="mt-5 max-w-xl text-sm font-light leading-7 text-muted-foreground sm:mt-7 sm:text-lg sm:leading-8">{product.description}</p>
             <p className="mt-4 max-w-xl text-sm font-light leading-7 text-muted-foreground">{product.ritual}</p>
 
-            <div className="mt-10 border-y border-border py-7">
-              <div className="flex items-baseline justify-between gap-4">
-                <span className="text-sm text-muted-foreground">Bundle price</span>
-                <div className="flex items-baseline gap-3">
-                  <span className="text-sm text-muted-foreground line-through">{product.originalPrice}</span>
-                  <span className="font-display text-4xl font-semibold">{product.bundlePrice}</span>
+            <section aria-labelledby="bundle-title" className="mt-8 border-y border-border py-6 sm:mt-10 sm:py-7">
+              <h2 id="bundle-title" className="font-display text-2xl font-bold">What’s in the bundle?</h2>
+              <p className="mt-2 text-sm text-muted-foreground">3 × {product.name} (Full Size)</p>
+              <div className="mt-6 space-y-3">
+                <div className="flex items-center justify-between gap-4 text-sm text-muted-foreground">
+                  <span>Original price for 3 units</span><span className="line-through">{product.originalPrice}</span>
                 </div>
+                <div className="flex flex-wrap items-end justify-between gap-3">
+                  <span className="text-sm font-semibold">Bundle price for 3 units</span>
+                  <div className="flex items-center gap-3">
+                    <span className="rounded-full bg-secondary px-3 py-1.5 text-[10px] font-bold uppercase text-primary">Save 30%</span>
+                    <span className="font-display text-4xl font-bold">{product.bundlePrice}</span>
+                  </div>
+                </div>
+                <p className="text-right text-sm font-semibold text-primary">That’s only {perUnitPrice(product)} per unit!</p>
               </div>
-              <div className="mt-4 flex items-center justify-between text-xs text-muted-foreground">
-                <span>Single item price</span><span>{product.singlePrice}</span>
-              </div>
-            </div>
+            </section>
 
             <div className="mt-8 flex items-start gap-3 text-sm">
               <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground"><Check aria-hidden="true" className="h-3 w-3" /></span>
@@ -77,7 +86,7 @@ function ProductDetail() {
             </div>
 
             <Button asChild size="lg" className="mt-9 h-14 w-full rounded-full text-xs uppercase tracking-[0.16em]">
-              <a href={checkoutUrl(product)}>Buy bundle · {product.bundlePrice}<ArrowUpRight aria-hidden="true" /></a>
+              <a href={checkoutUrl(product)}>Buy Pack of 3 - {product.bundlePrice}<ArrowUpRight aria-hidden="true" /></a>
             </Button>
             <p className="mt-4 text-center text-[11px] text-muted-foreground">Secure payment through our external checkout.</p>
 

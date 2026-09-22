@@ -1,4 +1,4 @@
-// REPLACE {{CHECKOUT_LINK}} WITH YOUR ACTUAL CHECKOUT LINK
+// REPLACE WITH YOUR ACTUAL CHECKOUT LINK
 export const CHECKOUT_LINK = "https://example.com/checkout";
 
 export type Product = {
@@ -21,7 +21,7 @@ export const products: Product[] = [
     singlePrice: "$14.90",
     originalPrice: "$44.70",
     bundlePrice: "$31.29",
-    description: "Exfoliating toner pads for smooth, clear skin. A gentle daily ritual for a flawless complexion.",
+    description: "Exfoliating toner pads for smooth, clear skin. This bundle includes 3 full-size units.",
     contents: "Three full-size jars of exfoliating toner pads",
     ritual: "Sweep across freshly cleansed skin to refine the look of pores and reveal a calm, polished finish.",
   },
@@ -32,7 +32,7 @@ export const products: Product[] = [
     singlePrice: "$19.00",
     originalPrice: "$57.00",
     bundlePrice: "$39.90",
-    description: "Deep hydration collagen mask. A luxurious spa experience in the comfort of your home.",
+    description: "Deep hydration collagen mask. This bundle includes 3 full-size boxes (12 masks total).",
     contents: "Three boxes, with twelve masks in total",
     ritual: "Let each hydrogel mask melt into skin overnight, leaving it visibly plump, rested, and luminous by morning.",
   },
@@ -43,7 +43,7 @@ export const products: Product[] = [
     singlePrice: "$9.00",
     originalPrice: "$27.00",
     bundlePrice: "$18.90",
-    description: "Gentle exfoliating toner for bright, even skin. The secret to a radiant glow.",
+    description: "Gentle exfoliating toner for bright, even skin. This bundle includes 3 full-size units.",
     contents: "Three full-size bottles of exfoliating toner",
     ritual: "A considered evening treatment that smooths uneven texture and restores clarity without complicating your routine.",
   },
@@ -54,7 +54,7 @@ export const products: Product[] = [
     singlePrice: "$24.00",
     originalPrice: "$72.00",
     bundlePrice: "$50.40",
-    description: "Hydrating lip butter balm. Soft, supple lips with a hint of luxury.",
+    description: "Hydrating lip butter balm. This bundle includes 3 full-size units.",
     contents: "Three full-size hydrating lip balms",
     ritual: "A silky, comforting veil of moisture that softens dry lips and adds a natural, understated sheen.",
   },
@@ -65,7 +65,7 @@ export const products: Product[] = [
     singlePrice: "$23.00",
     originalPrice: "$69.00",
     bundlePrice: "$48.30",
-    description: "Restorative peptide lip treatment. The ultimate hydration for a perfect pout.",
+    description: "Restorative peptide lip treatment. This bundle includes 3 full-size units.",
     contents: "Three full-size peptide lip treatments",
     ritual: "Peptide-rich care cushions lips with lasting hydration, helping them look smoother, fuller, and beautifully restored.",
   },
@@ -73,3 +73,8 @@ export const products: Product[] = [
 
 export const checkoutUrl = (product: Product) =>
   `${CHECKOUT_LINK}?product=${encodeURIComponent(product.slug)}`;
+
+export const perUnitPrice = (product: Product) => {
+  const bundleTotal = Number(product.bundlePrice.replace(/[^0-9.]/g, ""));
+  return `$${(bundleTotal / 3).toFixed(2)}`;
+};
