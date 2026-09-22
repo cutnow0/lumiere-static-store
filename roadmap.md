@@ -5,3 +5,8 @@
 - [x] Upgrade product detail content and purchase presentation
 - [x] Confirm static setup documentation
 - [x] Verify desktop and mobile storefront flows
+
+- [ ] Fix header to show one centered 40px logo and decorative cart icon
+- [ ] Clarify pack-of-three pricing on cards and product pages
+- [ ] Update exact product descriptions and dynamic per-unit pricing
+- [ ] Verify desktop/mobile navigation, checkout tracking, and build status
