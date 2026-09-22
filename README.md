@@ -1,17 +1,17 @@
 # Lumière Skincare Store
 
-A static, mobile-first storefront for curated skincare bundles. Product purchases leave the site for an external checkout; there is no database, account system, internal cart, or server-side business logic.
+A static, mobile-first luxury storefront for curated skincare bundles. Product purchases leave the site for an external checkout; there is no database, account system, internal cart, or server-side business logic.
 
 ## Run locally
 
-Install a current LTS version of [Node.js](https://nodejs.org/), open CMD or a terminal in the project folder, and run:
+Install a current LTS version of [Node.js](https://nodejs.org/), open CMD in the project folder, and run:
 
 ```sh
 npm install
 npm run dev
 ```
 
-Open the local address printed in the terminal (normally `http://localhost:3000`).
+Open the local address printed in CMD. Keep that window open while viewing the store.
 
 ## Create a production build
 
@@ -39,7 +39,7 @@ Open `src/lib/store.ts` and replace the single `CHECKOUT_LINK` value. The store 
 2. Use `npm run build` as the build command.
 3. Keep the detected output settings and deploy.
 
-For any other static-capable host, run `npm run build` and upload the generated deployment output. Ensure the host redirects unknown product URLs back to the app entry point so direct links continue to work.
+For any other static-capable host, run `npm run build` and upload the generated deployment output. Configure the host to serve the app entry for unknown product URLs so direct product links continue to work.
 
 ## Technology
 

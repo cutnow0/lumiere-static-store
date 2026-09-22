@@ -1,27 +1,32 @@
 import { Link } from "@tanstack/react-router";
-import { ShoppingBag } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { ReactNode } from "react";
 
 const LOGO_URL = "https://i.ibb.co/mFBWMrB9/logooo.png";
-// REPLACE {{LOGO_URL}} WITH YOUR ACTUAL LOGO LINK
+// REPLACE WITH YOUR LOGO LINK
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
-      <div className="mx-auto grid h-18 max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-4 sm:h-20 sm:px-8">
-        <span className="hidden text-[11px] uppercase tracking-[0.22em] text-muted-foreground sm:block">
-          Curated essentials
-        </span>
-        <Link to="/" aria-label="Lumière home" className="justify-self-start sm:justify-self-center">
-          <img src={LOGO_URL} alt="Lumière" className="h-10 w-auto object-contain" />
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/92 backdrop-blur-xl">
+      <div className="mx-auto grid h-20 max-w-[1440px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:h-24 sm:px-10 lg:px-16">
+        <span className="hidden text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground sm:block">Curated in threes</span>
+        <Link to="/" aria-label="Lumière home" className="relative flex h-[50px] items-center justify-self-start sm:justify-self-center">
+          <span className="font-display text-2xl font-semibold">Lumière</span>
+          <img
+            src={LOGO_URL}
+            alt="Lumière"
+            onLoad={(event) => {
+              event.currentTarget.previousElementSibling?.setAttribute("hidden", "");
+            }}
+            onError={(event) => {
+              event.currentTarget.style.display = "none";
+            }}
+            className="absolute inset-0 h-[50px] w-auto max-w-none object-contain"
+          />
         </Link>
-        <span
-          aria-label="Shopping bag, checkout opens externally"
-          title="Checkout opens externally"
-          className="flex h-10 w-10 items-center justify-center justify-self-end text-foreground"
-        >
-          <ShoppingBag aria-hidden="true" className="h-5 w-5" strokeWidth={1.5} />
-        </span>
+        <Link to="/" className="flex items-center gap-2 justify-self-end text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground transition-colors hover:text-primary">
+          Shop <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
+        </Link>
       </div>
     </header>
   );
@@ -30,15 +35,15 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-footer text-footer-foreground">
-      <div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 sm:py-16">
-        <div className="grid gap-10 sm:grid-cols-[1fr_auto] sm:items-end">
+      <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-10 sm:py-24 lg:px-16">
+        <div className="grid gap-14 sm:grid-cols-[1fr_auto] sm:items-end">
           <div>
-            <p className="font-display text-3xl">Lumière</p>
-            <p className="mt-3 max-w-sm text-sm leading-6 text-footer-muted">
+            <p className="font-display text-4xl font-semibold">Lumière</p>
+            <p className="mt-4 max-w-sm text-sm font-light leading-7 text-footer-muted">
               Considered skincare rituals, thoughtfully bundled for everyday radiance.
             </p>
           </div>
-          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-10 gap-y-4 text-sm sm:grid-cols-4">
+          <nav aria-label="Footer" className="grid grid-cols-2 gap-x-10 gap-y-4 text-xs uppercase tracking-[0.12em] sm:grid-cols-4">
             <a href="mailto:hello@lumiere.example" className="transition-colors hover:text-accent">Contact</a>
             <a href="/#about" className="transition-colors hover:text-accent">About</a>
             <a href="/#shipping" className="transition-colors hover:text-accent">Shipping</a>
