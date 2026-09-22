@@ -40,9 +40,9 @@ export function SiteFooter() {
           </div>
           <nav aria-label="Footer" className="grid grid-cols-2 gap-x-10 gap-y-4 text-sm sm:grid-cols-4">
             <a href="mailto:hello@lumiere.example" className="transition-colors hover:text-accent">Contact</a>
-            <a href="#about" className="transition-colors hover:text-accent">About</a>
-            <a href="#shipping" className="transition-colors hover:text-accent">Shipping</a>
-            <a href="#returns" className="transition-colors hover:text-accent">Returns</a>
+            <a href="/#about" className="transition-colors hover:text-accent">About</a>
+            <a href="/#shipping" className="transition-colors hover:text-accent">Shipping</a>
+            <a href="/#returns" className="transition-colors hover:text-accent">Returns</a>
           </nav>
         </div>
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-footer-border pt-6 text-xs text-footer-muted">
