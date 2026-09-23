@@ -20,7 +20,7 @@ export function SiteHeader() {
               src={LOGO_URL}
               alt="Orenne"
               onError={() => setLogoFailed(true)}
-              className="h-10 w-auto max-w-[180px] object-contain"
+              className="h-10 w-auto object-contain"
             />
           )}
         </Link>

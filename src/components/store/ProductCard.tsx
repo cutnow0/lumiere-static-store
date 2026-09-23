@@ -20,10 +20,10 @@ export function ProductCard({ product }: { product: Product }) {
             }}
             className="relative h-full w-full bg-muted object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025]"
           />
-          <span className="absolute left-3 top-3 rounded-full bg-primary px-3 py-2 text-[10px] font-bold uppercase text-primary-foreground shadow-sm sm:left-5 sm:top-5 sm:px-4 sm:text-xs">Pack of 3</span>
         </div>
         <div className="px-1 pt-5 sm:pt-6">
-          <h2 className="min-h-14 font-display text-base font-semibold leading-snug sm:min-h-16 sm:text-xl">{product.name}</h2>
+          <span className="inline-flex rounded-full bg-primary px-3 py-1.5 text-[9px] font-bold uppercase text-primary-foreground shadow-sm sm:px-4 sm:text-[10px]">Pack of 3</span>
+          <h2 className="mt-3 min-h-14 font-display text-base font-semibold leading-snug sm:min-h-16 sm:text-xl">{product.name}</h2>
           <div className="mt-4 space-y-1.5">
             <p className="text-[10px] text-muted-foreground sm:text-xs">Original price for 3 units: <span className="line-through">{product.originalPrice}</span></p>
             <p className="text-xs font-semibold sm:text-sm">Bundle price for 3 units</p>
