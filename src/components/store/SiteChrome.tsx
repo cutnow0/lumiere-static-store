@@ -1,22 +1,28 @@
 import { Link } from "@tanstack/react-router";
 import { ShoppingBag } from "lucide-react";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 
-const LOGO_URL = "https://i.ibb.co/mFBWMrB9/logooo.png";
-// REPLACE WITH YOUR LOGO LINK
+// ORENNE LOGO LINK - REPLACE IF NEEDED
+const LOGO_URL = "https://i.ibb.co/4nB8NW19/Gemini-Generated-Image-6lu4y36lu4y36lu4-removebg-preview.png";
 
 export function SiteHeader() {
+  const [logoFailed, setLogoFailed] = useState(false);
+
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/92 backdrop-blur-xl">
       <div className="mx-auto grid h-16 max-w-[1440px] grid-cols-[40px_1fr_40px] items-center px-5 sm:h-20 sm:px-10 lg:px-16">
         <span aria-hidden="true" />
-        {/* LOGO FIXED - ONLY ONE INSTANCE */}
-        <Link to="/" aria-label="Lumière home" className="flex h-10 items-center justify-center justify-self-center">
-          <img
-            src={LOGO_URL}
-            alt="Lumière"
-            className="h-10 w-auto max-w-[180px] object-contain"
-          />
+        <Link to="/" aria-label="Orenne home" className="flex h-10 items-center justify-center justify-self-center">
+          {logoFailed ? (
+            <span className="font-display text-2xl font-semibold">ORENNE</span>
+          ) : (
+            <img
+              src={LOGO_URL}
+              alt="Orenne"
+              onError={() => setLogoFailed(true)}
+              className="h-10 w-auto object-contain"
+            />
+          )}
         </Link>
         <span aria-label="Shopping bag" role="img" className="flex h-10 w-10 items-center justify-center justify-self-end text-foreground">
           <ShoppingBag aria-hidden="true" className="h-5 w-5" strokeWidth={1.5} />
@@ -32,7 +38,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-[1440px] px-5 py-16 sm:px-10 sm:py-24 lg:px-16">
         <div className="grid gap-14 sm:grid-cols-[1fr_auto] sm:items-end">
           <div>
-            <p className="font-display text-4xl font-semibold">Lumière</p>
+            <p className="font-display text-4xl font-semibold">Orenne</p>
             <p className="mt-4 max-w-sm text-sm font-light leading-7 text-footer-muted">
               Considered skincare rituals, thoughtfully bundled for everyday radiance.
             </p>
@@ -45,7 +51,7 @@ export function SiteFooter() {
           </nav>
         </div>
         <div className="mt-10 flex flex-wrap justify-between gap-3 border-t border-footer-border pt-6 text-xs text-footer-muted">
-          <span>© 2026 Lumière</span>
+          <span>© 2026 Orenne</span>
           <span>External checkout · Secure payment</span>
         </div>
       </div>

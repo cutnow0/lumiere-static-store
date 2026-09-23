@@ -1,5 +1,5 @@
-// REPLACE WITH YOUR ACTUAL CHECKOUT LINK
 export const CHECKOUT_LINK = "https://example.com/checkout";
+// REPLACE WITH YOUR ACTUAL CHECKOUT LINK
 
 export type Product = {
   slug: string;

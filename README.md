@@ -1,4 +1,4 @@
-# Lumière Skincare Store
+# Orenne Skincare Store
 
 A static, mobile-first luxury storefront for curated skincare bundles. Product purchases leave the site for an external checkout; there is no database, account system, internal cart, or server-side business logic.
 
