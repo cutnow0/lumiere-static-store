@@ -7,9 +7,9 @@ import { products } from "@/lib/store";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lumière — Curated Skincare Bundles" },
+      { title: "Orenne — Curated Skincare Bundles" },
       { name: "description", content: "Luxury skincare bundles curated for your ritual, with 30% savings." },
-      { property: "og:title", content: "Lumière — Curated Skincare Bundles" },
+      { property: "og:title", content: "Orenne — Curated Skincare Bundles" },
       { property: "og:description", content: "Luxury skincare bundles curated for your ritual, with 30% savings." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -29,7 +29,7 @@ function Index() {
     <StoreLayout>
       <section className="mx-auto max-w-[1440px] px-5 pb-20 pt-20 sm:px-10 sm:pb-28 sm:pt-28 lg:px-16 lg:pb-36 lg:pt-36">
         <div className="max-w-5xl">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">The Lumière edit · No. 01</p>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">The Orenne edit · No. 01</p>
           <h1 className="mt-7 max-w-4xl font-display text-6xl font-semibold leading-[0.98] sm:text-8xl lg:text-9xl">
             Rituals, <span className="italic text-primary">in threes.</span>
           </h1>
@@ -73,7 +73,7 @@ function Index() {
         <div>
           <h2 className="font-display text-5xl font-semibold leading-tight sm:text-6xl">Less searching.<br /><span className="italic text-primary">More ritual.</span></h2>
           <p className="mt-8 max-w-xl font-light leading-8 text-muted-foreground">
-            Lumière brings together sought-after skincare in considered sets of three—making it simpler to stay consistent with the products you love.
+            Orenne brings together sought-after skincare in considered sets of three—making it simpler to stay consistent with the products you love.
           </p>
           <div className="mt-10 grid grid-cols-2 gap-6 border-t border-border pt-6 text-sm">
             <div id="shipping"><p className="font-semibold">Shipping</p><p className="mt-2 text-muted-foreground">Fast, careful dispatch.</p></div>
