@@ -67,7 +67,7 @@ function ProductDetail() {
             </section>
 
             <Button asChild size="lg" className="mt-7 h-14 w-full rounded-full text-xs uppercase tracking-[0.12em]">
-              <a href={checkoutUrl(product)}>Buy Pack of 3 - {product.bundlePrice}<ArrowUpRight aria-hidden="true" /></a>
+              <a href={checkoutUrl(product)}>Buy Bundle - {product.bundlePrice}<ArrowUpRight aria-hidden="true" /></a>
             </Button>
             <p className="mt-4 text-center text-[11px] text-muted-foreground">Secure payment through our external checkout.</p>
 
@@ -77,7 +77,7 @@ function ProductDetail() {
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground"><Check aria-hidden="true" className="h-3 w-3" /></span>
                 <div>
                   <p className="font-semibold">3 × {product.name} (Full Size)</p>
-                  <p className="mt-2 text-muted-foreground">{product.description.split(". ")[1] ?? product.contents}.</p>
+                  <p className="mt-2 text-muted-foreground">{product.description.split(". ").slice(1).join(". ") || product.contents}</p>
                 </div>
               </div>
             </section>
